@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Ahmed Alkholy",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc src/*.ts",
+    "test": "echo \\\"No tests specified\\\"",
+    "start": "node ./src/index.js"
+  },
   "devDependencies": {
     "typescript": "^5.3.3",
     "@types/express": "^5.0.0"
