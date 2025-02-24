@@ -4,5 +4,8 @@
   "description": "An API gateway for a microservices app",
   "main": "index.js",
   "author": "Ahmed Alkholy",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
