@@ -1,0 +1,8 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "An API gateway for a microservices app",
+  "main": "index.js",
+  "author": "Ahmed Alkholy",
+  "license": "MIT"
+}
