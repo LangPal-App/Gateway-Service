@@ -8,9 +8,14 @@ const router = express.Router();
 router.use('/auth', pathBasedAuth, createProxyMiddleware({
     target: services.authService,
     changeOrigin: true,
+    selfHandleResponse: true,
     pathRewrite: { '^/': '/api/' },
     on: {
         proxyReq: fixRequestBody,
+        proxyRes: (proxyRes, req, res) => {
+            res.status(proxyRes.statusCode || 500);
+            proxyRes.pipe(res);
+        },
     },
 }));
 
