@@ -1,4 +1,7 @@
 .idea
+.vscode
+dist
+Dockerfile
 node_modules
 **/.git
 *.log
