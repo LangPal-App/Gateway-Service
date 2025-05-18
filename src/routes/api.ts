@@ -14,6 +14,7 @@ router.use('/auth', pathBasedAuth, createProxyMiddleware({
         proxyReq: fixRequestBody,
         proxyRes: (proxyRes, req, res) => {
             res.status(proxyRes.statusCode || 500);
+            res.setHeader('Content-Type', 'application/json');
             proxyRes.pipe(res);
         },
     },
