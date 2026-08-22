@@ -9,7 +9,20 @@ router.use('/auth', pathBasedAuth, createProxyMiddleware({
     target: services.authService,
     changeOrigin: true,
     selfHandleResponse: true,
-    pathRewrite: { '^/': '/api/' },
+    on: {
+        proxyReq: fixRequestBody,
+        proxyRes: (proxyRes, req, res) => {
+            res.status(proxyRes.statusCode || 500);
+            // res.setHeader('Content-Type', 'application/json');
+            proxyRes.pipe(res);
+        },
+    },
+}));
+
+router.use('/chat-service', pathBasedAuth, createProxyMiddleware({
+    target: services.palsService,
+    changeOrigin: true,
+    selfHandleResponse: true,
     on: {
         proxyReq: fixRequestBody,
         proxyRes: (proxyRes, req, res) => {
